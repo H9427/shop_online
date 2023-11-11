@@ -34,12 +34,12 @@ spring:
       #redis服务器连接端口
       port: 6379
       #redis连接密码
-      password:
+#      password:
 
 
 mybatis-plus:
   mapper-locations: classpath:/mapper/*Mapper.xml
-  type-aliases-package: com.soft2242.shop.*.entity
+  type-aliases-package: com.example.shop_online.*.entity
   configuration:
     map-underscore-to-camel-case: true
     cache-enabled: false
