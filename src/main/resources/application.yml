@@ -34,7 +34,7 @@ spring:
       #redis服务器连接端口
       port: 6379
       #redis连接密码
-#      password:
+      password:
 
 
 mybatis-plus:
