@@ -15,43 +15,30 @@ import java.util.List;
  * @since 2023-11-09
  */
 public interface UserShippingAddressService extends IService<UserShippingAddress> {
-    /**
-     * 添加收货地址
-     *
-     * @param addressVO
-     * @return Integer
-     */
+
+    //添加收货地址
     Integer saveShippingAddress(AddressVO addressVO);
-
-    /**
-     * 修改收货地址
-     *
-     * @param addressVO
-     * @return Integer
-     */
+    //修改
     Integer editShippingAddress(AddressVO addressVO);
-
+    //获取
     /**
-     * 获取收货地址
+     * 收货地址列表
      *
      * @param userId
-     * @return List
+     * @return
      */
     List<AddressVO> getList(Integer userId);
-
     /**
-     * 收货地址详情
+     *收货地址详情
      *
      * @param id
-     * @return AddressVO
+     * @return
      */
-    AddressVO getShippingAddress(Integer id);
-
+    AddressVO getAddressInfo(Integer id);
     /**
      * 删除收货地址
      *
      * @param id
-     * @return Integer
      */
-    Integer deleteShippingAddress(Integer id);
+    void removeShippingAddress(Integer id);
 }

@@ -48,6 +48,14 @@ public class UserShoppingCartController {
         return Result.ok(list);
     }
 
+    @Operation(summary = "修改购物车单品")
+    @PutMapping("edit")
+    public Result<CartGoodsVO> editShopCart(@RequestBody @Validated EditCartQuery query) {
+        CartGoodsVO goodsVO = userShoppingCartService.editCart(query);
+        return Result.ok(goodsVO);
+
+    }
+
     @Operation(summary = "删除/清空购物车单品")
     @DeleteMapping("remove")
     public Result removeShopCart(@RequestBody List<Integer> ids, HttpServletRequest request) {
@@ -59,13 +67,6 @@ public class UserShoppingCartController {
         return Result.ok();
     }
 
-    @Operation(summary = "修改购物车单品")
-    @PutMapping("edit")
-    public Result<CartGoodsVO> editShopCart(@RequestBody @Validated EditCartQuery query) {
-        CartGoodsVO goodsVO = userShoppingCartService.editCart(query);
-        return Result.ok(goodsVO);
-    }
-
     @Operation(summary = "购物车全选/取消全选")
     @PutMapping("selected")
     public Result editCartSelected(@RequestParam Boolean selected, HttpServletRequest request) {
@@ -73,5 +74,6 @@ public class UserShoppingCartController {
         userShoppingCartService.editCartSelected(selected, userId);
         return Result.ok();
     }
+
 }
 
