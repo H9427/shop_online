@@ -13,13 +13,13 @@ public class WebMvcConfig implements WebMvcConfigurer {
         return new AuthorizationInterceptor();
     }
 
-
-    //    将需要登录拦截器配置到容器中，并配置不被拦截的路径
+    // 将需要登录拦截器配置到容器中，并配置不被拦截的路径
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(getAuthorizationInterceptor())
                 .addPathPatterns("/user/profile/**")
                 .addPathPatterns("/member/**")
-                .addPathPatterns("/cart/**");
+                .addPathPatterns("/cart/**")
+                .addPathPatterns("/order/**");
     }
 }

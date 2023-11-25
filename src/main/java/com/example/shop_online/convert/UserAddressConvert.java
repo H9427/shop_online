@@ -1,0 +1,24 @@
+package com.example.shop_online.convert;
+
+import com.example.shop_online.entity.UserShippingAddress;
+import com.example.shop_online.vo.UserAddressVO;
+import org.apache.ibatis.annotations.Mapper;
+import org.mapstruct.factory.Mappers;
+
+import java.util.List;
+
+/**
+ * author：H
+ * Date：2023/11/25 10:29
+ */
+@Mapper
+public interface UserAddressConvert {
+
+    UserAddressConvert INSTANCE = Mappers.getMapper(UserAddressConvert.class);
+
+
+    UserAddressVO convertToUserAddressVO(UserShippingAddress userShippingAddress);
+
+
+    List<UserAddressVO> convertToUserAddressVOList(List<UserShippingAddress> list);
+}
