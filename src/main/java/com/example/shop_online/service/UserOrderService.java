@@ -1,10 +1,15 @@
 package com.example.shop_online.service;
 
+import com.example.shop_online.common.result.PageResult;
 import com.example.shop_online.entity.UserOrder;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.example.shop_online.query.OrderPreQuery;
+import com.example.shop_online.query.OrderQuery;
 import com.example.shop_online.vo.OrderDetailVO;
 import com.example.shop_online.vo.SubmitOrderVO;
 import com.example.shop_online.vo.UserOrderVO;
+
+import java.util.List;
 
 /**
  * <p>
@@ -38,4 +43,73 @@ public interface UserOrderService extends IService<UserOrder> {
      * @return SubmitOrderVO
      */
     SubmitOrderVO getPreOrderDetail(Integer userId);
+
+    /**
+     * 填写订单-立即支付
+     *
+     * @param orderPreQuery
+     * @return SubmitOrderVO
+     */
+    SubmitOrderVO getPreNowOrderDetail(OrderPreQuery orderPreQuery);
+
+    /**
+     * 填写订单-再次购买
+     *
+     * @param id
+     * @return SubmitOrderVO
+     */
+    SubmitOrderVO getRepurchaseOrderDetail(Integer id);
+
+    /**
+     * 订单列表
+     *
+     * @param query
+     * @return PageResult
+     */
+    PageResult<OrderDetailVO> getOrderList(OrderQuery query);
+
+    /**
+     * 取消订单
+     *
+     * @param query
+     * @return OrderDetailVO
+     */
+    OrderDetailVO cancelOrder(CancelGoodsQuery query);
+
+    /**
+     * 删除订单
+     *
+     * @param ids
+     */
+    void deleteOrder(List<Integer> ids, Integer userId);
+
+    /**
+     * 模拟发货
+     *
+     * @param id
+     */
+    void consignOrder(Integer id);
+
+    /**
+     * 订单支付
+     *
+     * @param id
+     */
+    void payOrder(Integer id);
+
+    /**
+     * 确认收货
+     *
+     * @param id
+     * @return OrderDetailVO
+     */
+    OrderDetailVO receiptOrder(Integer id);
+
+    /**
+     * 物流订单信息
+     *
+     * @param id
+     * @return OrderLogisticVO
+     */
+    OrderLogisticVO getOrderLogistics(Integer id);
 }
