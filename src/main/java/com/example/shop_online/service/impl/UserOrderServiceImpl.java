@@ -2,7 +2,9 @@ package com.example.shop_online.service.impl;
 
 
 import com.alibaba.fastjson2.JSONArray;
+import com.alibaba.fastjson2.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.shop_online.common.exception.ServerException;
 import com.example.shop_online.common.result.PageResult;
@@ -11,8 +13,10 @@ import com.example.shop_online.convert.UserOrderDetailConvert;
 import com.example.shop_online.entity.*;
 import com.example.shop_online.enums.OrderStatusEnum;
 import com.example.shop_online.mapper.*;
+import com.example.shop_online.query.CancelGoodsQuery;
 import com.example.shop_online.query.OrderGoodsQuery;
 import com.example.shop_online.query.OrderPreQuery;
+import com.example.shop_online.query.OrderQuery;
 import com.example.shop_online.service.UserOrderGoodsService;
 import com.example.shop_online.service.UserOrderService;
 import com.example.shop_online.vo.*;
@@ -311,7 +315,7 @@ public class UserOrderServiceImpl extends ServiceImpl<UserOrderMapper, UserOrder
         // 5. 查询订单对应的商品信息和收货信息
         for (UserOrder userOrder : orderRecords) {
             OrderDetailVO orderDetailVO = UserOrderDetailConvert.INSTANCE.convertToOrderDetailVO(userOrder);
-            UserShoppingAddress userShippingAddress = userShoppingAddressMapper.selectById(userOrder.getAddressId());
+            UserShippingAddress userShippingAddress = userShoppingAddressMapper.selectById(userOrder.getAddressId());
             if (userShippingAddress != null) {
                 orderDetailVO.setReceiverContact(userShippingAddress.getReceiver());
                 orderDetailVO.setReceiverAddress(userShippingAddress.getAddress());
@@ -343,7 +347,7 @@ public class UserOrderServiceImpl extends ServiceImpl<UserOrderMapper, UserOrder
         baseMapper.updateById(userOrder);
         OrderDetailVO orderDetailVO = UserOrderDetailConvert.INSTANCE.convertToOrderDetailVO(userOrder);
         // 4. 查询订单地址信息
-        UserShoppingAddress userShoppingAddress = userShoppingAddressMapper.selectById(userOrder.getAddressId());
+        UserShippingAddress userShoppingAddress = userShoppingAddressMapper.selectById(userOrder.getAddressId());
         if (userShoppingAddress != null) {
             orderDetailVO.setReceiverContact(userShoppingAddress.getReceiver());
             orderDetailVO.setReceiverAddress(userShoppingAddress.getAddress());
@@ -424,7 +428,7 @@ public class UserOrderServiceImpl extends ServiceImpl<UserOrderMapper, UserOrder
         baseMapper.updateById(userOrder);
         OrderDetailVO orderDetailVO = UserOrderDetailConvert.INSTANCE.convertToOrderDetailVO(userOrder);
 //        3、根据订单信息查询收货地址信息
-        UserShoppingAddress userShippingAddress = userShoppingAddressMapper.selectById(userOrder.getAddressId());
+        UserShippingAddress userShippingAddress = userShoppingAddressMapper.selectById(userOrder.getAddressId());
         if (userShippingAddress != null) {
             orderDetailVO.setReceiverContact(userShippingAddress.getReceiver());
             orderDetailVO.setReceiverAddress(userShippingAddress.getAddress());
@@ -487,8 +491,8 @@ public class UserOrderServiceImpl extends ServiceImpl<UserOrderMapper, UserOrder
 
     public List<UserAddressVO> getAddressListByUserId(Integer userId, Integer addressId) {
         // 1. 根据用户id查询该用户的收货地址列表
-        List<UserShoppingAddress> list = userShoppingAddressMapper.selectList(new LambdaQueryWrapper<UserShoppingAddress>().eq(UserShoppingAddress::getUserId, userId));
-        UserShoppingAddress userShoppingAddress = null;
+        List<UserShippingAddress> list = userShoppingAddressMapper.selectList(new LambdaQueryWrapper<UserShippingAddress>().eq(UserShippingAddress::getUserId, userId));
+        UserShippingAddress userShoppingAddress = null;
         UserAddressVO userAddressVO;
         if (list.size() == 0) {
             return null;
