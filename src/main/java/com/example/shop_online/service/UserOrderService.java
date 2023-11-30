@@ -6,10 +6,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.example.shop_online.query.CancelGoodsQuery;
 import com.example.shop_online.query.OrderPreQuery;
 import com.example.shop_online.query.OrderQuery;
-import com.example.shop_online.vo.OrderDetailVO;
-import com.example.shop_online.vo.OrderLogisticVO;
-import com.example.shop_online.vo.SubmitOrderVO;
-import com.example.shop_online.vo.UserOrderVO;
+import com.example.shop_online.vo.*;
+import io.lettuce.core.dynamic.annotation.Param;
 
 import java.util.List;
 
@@ -22,96 +20,33 @@ import java.util.List;
  * @since 2023-11-09
  */
 public interface UserOrderService extends IService<UserOrder> {
-    /**
-     * 新增订单
-     *
-     * @param orderVO
-     * @return Integer
-     */
+    //提交订单
     Integer addGoodsOrder(UserOrderVO orderVO);
 
-    /**
-     * 获取订单详情
-     *
-     * @param id
-     * @return OrderDetailVO
-     */
+    //订单详情
     OrderDetailVO getOrderDetail(Integer id);
 
-    /**
-     * 填写订单-获取预付订单
-     *
-     * @param userId
-     * @return SubmitOrderVO
-     */
     SubmitOrderVO getPreOrderDetail(Integer userId);
 
-    /**
-     * 填写订单-立即支付
-     *
-     * @param orderPreQuery
-     * @return SubmitOrderVO
-     */
-    SubmitOrderVO getPreNowOrderDetail(OrderPreQuery orderPreQuery);
+    SubmitOrderVO getPreNowOrderDetail(OrderPreQuery query);
 
-    /**
-     * 填写订单-再次购买
-     *
-     * @param id
-     * @return SubmitOrderVO
-     */
     SubmitOrderVO getRepurchaseOrderDetail(Integer id);
 
-    /**
-     * 订单列表
-     *
-     * @param query
-     * @return PageResult
-     */
+    //订单列表
     PageResult<OrderDetailVO> getOrderList(OrderQuery query);
-
-    /**
-     * 取消订单
-     *
-     * @param query
-     * @return OrderDetailVO
-     */
+    //取消订单
     OrderDetailVO cancelOrder(CancelGoodsQuery query);
+    //删除订单
+    void deleteOrder(List<Integer> ids,Integer userId);
 
-    /**
-     * 删除订单
-     *
-     * @param ids
-     */
-    void deleteOrder(List<Integer> ids, Integer userId);
-
-    /**
-     * 模拟发货
-     *
-     * @param id
-     */
-    void consignOrder(Integer id);
-
-    /**
-     * 订单支付
-     *
-     * @param id
-     */
+    //模拟支付
     void payOrder(Integer id);
 
-    /**
-     * 确认收货
-     *
-     * @param id
-     * @return OrderDetailVO
-     */
+    //模拟发货
+    void consignOrder(Integer id);
+    //确认收货
     OrderDetailVO receiptOrder(Integer id);
-
-    /**
-     * 物流订单信息
-     *
-     * @param id
-     * @return OrderLogisticVO
-     */
+    //获取订单物流信息
     OrderLogisticVO getOrderLogistics(Integer id);
+
 }

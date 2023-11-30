@@ -3,10 +3,6 @@ package com.example.shop_online.enums;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-/**
- * author：H
- * Date：2023/11/25 10:10
- */
 @Getter
 @AllArgsConstructor
 public enum OrderStatusEnum {
@@ -19,4 +15,5 @@ public enum OrderStatusEnum {
 
     private final Integer value;
     private final String name;
+
 }

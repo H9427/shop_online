@@ -10,10 +10,6 @@ import lombok.Data;
 import java.time.LocalDateTime;
 import java.util.List;
 
-/**
- * author：H
- * Date：2023/11/25 10:21
- */
 @Data
 public class OrderDetailVO {
     @Schema(description = "订单id")

@@ -1,6 +1,6 @@
 package com.example.shop_online.common.config;
 
-import com.example.shop_online.interceptor.AuthorizationInterceptor;
+import com.example.shop_online.common.interceptor.AuthorizationInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -13,13 +13,10 @@ public class WebMvcConfig implements WebMvcConfigurer {
         return new AuthorizationInterceptor();
     }
 
-    // 将需要登录拦截器配置到容器中，并配置不被拦截的路径
+
+    //    将需要登录拦截器配置到容器中，并配置不被拦截的路径
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(getAuthorizationInterceptor())
-                .addPathPatterns("/user/profile/**")
-                .addPathPatterns("/member/**")
-                .addPathPatterns("/cart/**")
-                .addPathPatterns("/order/**");
+        registry.addInterceptor(getAuthorizationInterceptor()).addPathPatterns("/user/profile/**").addPathPatterns("/member/**").addPathPatterns("/cart/**").addPathPatterns("/order/**");
     }
 }

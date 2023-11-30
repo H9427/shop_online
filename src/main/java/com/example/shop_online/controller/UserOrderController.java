@@ -29,7 +29,7 @@ import static com.example.shop_online.common.utils.ObtainUserIdUtils.getUserId;
  * </p>
  *
  * @author whb
- * @since 2023-11-07
+ * @since 2023-11-09
  */
 @Tag(name = "订单管理")
 @RestController
@@ -104,17 +104,7 @@ public class UserOrderController {
     @DeleteMapping("delete")
     public Result deleteOrder(@RequestBody List<Integer> ids, HttpServletRequest request) {
         Integer userId = getUserId(request);
-        userOrderService.deleteOrder(ids, userId);
-        return Result.ok();
-    }
-
-    @Operation(summary = "模拟发货")
-    @GetMapping("consignment")
-    public Result consignOrder(@RequestParam Integer id) {
-        if (id == null) {
-            throw new ServerException("订单不存在");
-        }
-        userOrderService.consignOrder(id);
+        userOrderService.deleteOrder(ids,userId);
         return Result.ok();
     }
 
@@ -125,6 +115,16 @@ public class UserOrderController {
             throw new ServerException("订单不存在");
         }
         userOrderService.payOrder(id);
+        return Result.ok();
+    }
+
+    @Operation(summary = "模拟发货")
+    @GetMapping("consignment")
+    public Result consignOrder(@RequestParam Integer id) {
+        if (id == null) {
+            throw new ServerException("订单不存在");
+        }
+        userOrderService.consignOrder(id);
         return Result.ok();
     }
 

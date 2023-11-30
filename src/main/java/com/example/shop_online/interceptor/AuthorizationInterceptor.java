@@ -1,10 +1,9 @@
 package com.example.shop_online.interceptor;
 
 import com.example.shop_online.common.exception.ServerException;
-
+import com.example.shop_online.common.utils.JWTUtils;
 import com.example.shop_online.constant.APIConstant;
 import com.example.shop_online.service.RedisService;
-import com.example.shop_online.common.utils.JWTUtils;
 import com.example.shop_online.vo.UserTokenVO;
 import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletRequest;
@@ -12,6 +11,8 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.web.servlet.HandlerInterceptor;
 
 import java.util.Map;
+
+import static com.example.shop_online.constant.APIConstant.*;
 
 public class AuthorizationInterceptor implements HandlerInterceptor {
 

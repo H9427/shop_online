@@ -4,10 +4,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
-/**
- * author：H
- * Date：2023/11/11 18:29
- */
 @Data
 public class AddressVO {
     @Schema(description = "用户id")
@@ -35,4 +31,3 @@ public class AddressVO {
     @Schema(description = "是否为默认地址")
     private Integer isDefault;
 }
-

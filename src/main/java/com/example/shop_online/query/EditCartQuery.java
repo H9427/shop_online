@@ -4,10 +4,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
-/**
- * author：H
- * Date：2023/11/14 9:06
- */
 @Data
 public class EditCartQuery {
     @Schema(description = "主键id")

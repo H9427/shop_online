@@ -5,10 +5,6 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
-/**
- * author：H
- * Date：2023/11/27
- */
 @Data
 public class CancelGoodsQuery {
     @Schema(description = "主键")

@@ -4,10 +4,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
-/**
- * author：H
- * Date：2023/11/27
- */
 @Data
 public class OrderPreQuery {
     @Schema(description = "商品主键id")

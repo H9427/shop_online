@@ -1,11 +1,7 @@
 package com.example.shop_online.query;
+
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
-
-/**
- * author：H
- * Date：2023/11/27
- */
 
 @Data
 public class OrderQuery extends Query {

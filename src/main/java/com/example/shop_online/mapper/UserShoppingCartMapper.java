@@ -3,7 +3,7 @@ package com.example.shop_online.mapper;
 import com.example.shop_online.entity.UserShoppingCart;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.example.shop_online.vo.CartGoodsVO;
-import io.lettuce.core.dynamic.annotation.Param;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 

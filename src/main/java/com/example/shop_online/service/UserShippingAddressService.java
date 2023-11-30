@@ -3,6 +3,7 @@ package com.example.shop_online.service;
 import com.example.shop_online.entity.UserShippingAddress;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.example.shop_online.vo.AddressVO;
+import io.swagger.models.auth.In;
 
 import java.util.List;
 
@@ -11,7 +12,7 @@ import java.util.List;
  *  服务类
  * </p>
  *
- * @author whb
+ * @author wyh
  * @since 2023-11-09
  */
 public interface UserShippingAddressService extends IService<UserShippingAddress> {
@@ -41,4 +42,5 @@ public interface UserShippingAddressService extends IService<UserShippingAddress
      * @param id
      */
     void removeShippingAddress(Integer id);
+
 }

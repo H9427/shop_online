@@ -3,10 +3,6 @@ package com.example.shop_online.vo;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
-/**
- * author：H
- * Date：2023/11/25 10:24
- */
 @Data
 public class OrderInfoVO {
     @Schema(description = "商品件数")

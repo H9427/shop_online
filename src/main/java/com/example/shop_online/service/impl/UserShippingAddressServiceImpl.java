@@ -1,15 +1,13 @@
 package com.example.shop_online.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.shop_online.common.exception.ServerException;
 import com.example.shop_online.convert.AddressConvert;
-import com.example.shop_online.entity.User;
+import com.example.shop_online.entity.AddressDefaultEnum;
 import com.example.shop_online.entity.UserShippingAddress;
-import com.example.shop_online.enums.AddressDefaultEnum;
-import com.example.shop_online.enums.DeleteFlagEnum;
 import com.example.shop_online.mapper.UserShippingAddressMapper;
 import com.example.shop_online.service.UserShippingAddressService;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.shop_online.vo.AddressVO;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +18,7 @@ import java.util.List;
  *  服务实现类
  * </p>
  *
- * @author whb
+ * @author wyh
  * @since 2023-11-09
  */
 @Service
@@ -83,7 +81,7 @@ public class UserShippingAddressServiceImpl extends ServiceImpl<UserShippingAddr
         return addressVO;
     }
     @Override
-    //    删除收货地址
+//    删除收货地址
     public void removeShippingAddress(Integer id) {
         removeById(id);
     }

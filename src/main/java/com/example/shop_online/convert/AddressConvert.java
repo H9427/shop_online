@@ -7,18 +7,16 @@ import org.mapstruct.factory.Mappers;
 
 import java.util.List;
 
-/**
- * author：H
- * Date：2023/11/11 18:31
- */
 @Mapper
 public interface AddressConvert {
     AddressConvert INSTANCE = Mappers.getMapper(AddressConvert.class);
 
+
     UserShippingAddress convert(AddressVO addressVO);
+
 
     List<AddressVO> convertToAddressVOList(List<UserShippingAddress> addressList);
 
-    AddressVO convertToAddressVO(UserShippingAddress userShippingAddress);
 
+    AddressVO convertToAddressVO(UserShippingAddress userShippingAddress);
 }

@@ -56,6 +56,7 @@ public class UserOrder {
 
     @ApiModelProperty("订单状态，1为待付款、2为待发货、3为待收货、4为待评价、5为已完成、6为已取消，未传该参数或0为全部")
     @TableField("status")
+    //这里改过，把Byte改成了Integer
     private Integer status;
 
     @ApiModelProperty("1-不限，2-工作日，3-双休或假日")
@@ -81,7 +82,7 @@ public class UserOrder {
     @ApiModelProperty("删除标识（0-未删除，1-已删除）")
     @TableField("delete_flag")
     @TableLogic
-    private Integer deleteFlag;
+    private Byte deleteFlag;
 
     @ApiModelProperty("创建时间")
     @TableField(value = "create_time", fill = FieldFill.INSERT)

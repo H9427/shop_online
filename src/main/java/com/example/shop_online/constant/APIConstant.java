@@ -1,9 +1,5 @@
 package com.example.shop_online.constant;
 
-/**
- * author：H
- * Date：2023/11/11 8:14
- */
 public class APIConstant {
     /**
      * 请求头 认证名称
@@ -23,16 +19,15 @@ public class APIConstant {
     /**
      * 默认头像
      */
-    public static String DEFAULT_AVATAR = "默认头像链接";
+    public static String DEFAULT_AVATAR = "https://ycshang123.oss-cn-hangzhou.aliyuncs.com/cover%20%282%29.png";
     /**
      * APP_ID
      */
-    public static String APP_ID = "wx37a3e3ca5ea2c2bb";
+    public static String APP_ID = "wxaa2ae2d7bdaf9238";//111111
     /**
      * APP_SECRET
-     * 密钥：f06b3c7e4c95f5d3e6798c3cd83d0937
      */
-    public static String APP_SECRET = "f06b3c7e4c95f5d3e6798c3cd83d0937";
+    public static String APP_SECRET = "704484a196975c92cfe6a5a30ab4654d";///////
     /**
      * 微信调用api接口返回错误code
      */

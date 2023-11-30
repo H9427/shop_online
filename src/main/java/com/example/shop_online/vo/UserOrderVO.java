@@ -7,10 +7,6 @@ import lombok.Data;
 
 import java.util.List;
 
-/**
- * author：H
- * Date：2023/11/25 10:25
- */
 @Data
 public class UserOrderVO {
     @Schema(description = "商品集合")

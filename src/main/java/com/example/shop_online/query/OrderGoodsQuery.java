@@ -3,10 +3,6 @@ package com.example.shop_online.query;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
-/**
- * author：H
- * Date：2023/11/25 10:09
- */
 @Data
 public class OrderGoodsQuery {
     @Schema(description = "商品id")

@@ -5,10 +5,6 @@ import lombok.Data;
 
 import java.util.List;
 
-/**
- * author：H
- * Date：2023/11/25 10:24
- */
 @Data
 public class SubmitOrderVO {
     @Schema(description = "用户地址列表")
@@ -18,3 +14,4 @@ public class SubmitOrderVO {
     @Schema(description = "综述信息")
     private OrderInfoVO summary;
 }
+

@@ -30,7 +30,7 @@ public class UserShippingAddress {
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
-    @ApiModelProperty("用户id")   
+    @ApiModelProperty("用户id")
     @TableField("user_id")
     private Integer userId;
 
@@ -60,12 +60,12 @@ public class UserShippingAddress {
 
     @ApiModelProperty("是否为默认地址(0-否，1-是)")
     @TableField("is_default")
-    private Integer isDefault;
+    private Byte isDefault;
 
     @ApiModelProperty("逻辑删除(0-未删除，1-已删除)")
     @TableField("delete_flag")
     @TableLogic
-    private Integer deleteFlag;
+    private Byte deleteFlag;
 
     @ApiModelProperty("创建时间")
     @TableField(value = "create_time", fill = FieldFill.INSERT)

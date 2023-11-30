@@ -5,10 +5,6 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
-/**
- * author：H
- * Date：2023/11/14 8:11
- */
 @Data
 public class CartQuery {
     @Schema(description = "商品id")

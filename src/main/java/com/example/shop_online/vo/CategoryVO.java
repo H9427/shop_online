@@ -6,10 +6,6 @@ import lombok.Data;
 
 import java.util.List;
 
-/**
- * author：H
- * Date：2023/11/11 15:40
- */
 @Data
 public class CategoryVO {
     @Schema(description = "主键id")
